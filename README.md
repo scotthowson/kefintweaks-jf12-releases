@@ -4,6 +4,23 @@ Release builds of a fork of [KefinTweaks](https://github.com/ranaldsgift/KefinTw
 
 This repository only holds the release files: a zip of the web files, a one-line installer and checksums. The fork's source is private. KefinTweaks is MIT-licensed (see [LICENSE](LICENSE), copyright ranaldsgift), and so is this fork.
 
+## Quick start
+
+1. Install the **JavaScript Injector** plugin (Dashboard > Plugins > Catalog) and make an API key (Dashboard > API Keys).
+2. On the machine that runs Jellyfin, run one of these:
+
+   Docker (container named `jellyfin`):
+   ```
+   curl -fsSL https://github.com/scotthowson/kefintweaks-jf12-releases/releases/latest/download/install.sh | bash -s -- --container jellyfin --url http://localhost:8096 --api-key YOUR_API_KEY
+   ```
+   Package install (Debian, Ubuntu, Fedora...):
+   ```
+   curl -fsSL https://github.com/scotthowson/kefintweaks-jf12-releases/releases/latest/download/install.sh | sudo bash -s -- --web-dir /usr/share/jellyfin/web --url http://localhost:8096 --api-key YOUR_API_KEY
+   ```
+3. Reload the Jellyfin page. Administrators find the settings in the user menu > KefinTweaks.
+
+After a Jellyfin image or package update, run the same line again (or bind-mount the `kefin` folder, see below). The rest of this page explains each step.
+
 ## What you need
 
 - Jellyfin 12
